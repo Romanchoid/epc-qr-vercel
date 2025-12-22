@@ -6,7 +6,7 @@ const EPC_MAX_BYTES = 331;
 const DEFAULT_SIZE = 600;     // px
 const DEFAULT_MARGIN = 4;     // quiet zone in modules
 const DEFAULT_ECC = "M";      // per EPC guidance
-const DEFAULT_VERSION = 5;    // IMPORTANT: avoid RB crash seen with low versions (e.g., v3)
+const DEFAULT_VERSION = 6;    // IMPORTANT: avoid RB crash seen with low versions (e.g., v3)
 
 function clampInt(value, min, max, fallback) {
   const n = Number.parseInt(value, 10);
