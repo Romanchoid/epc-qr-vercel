@@ -17,7 +17,7 @@ function clampInt(value, min, max, fallback) {
 module.exports = async (req, res) => {
   const REQUIRED_KEY = process.env.QR_API_KEY;
   const apiKey = req.query?.key || req.headers["x-api-key"]; 
-  if (REQUIRED_KEY && apiKey !== REQUIRED_KEY) {
+  if (!REQUIRED_KEY || apiKey !== REQUIRED_KEY) {
     res.statusCode = 401;
     return res.end("Unauthorized");
   }
