@@ -49,6 +49,13 @@ function buildSpayd(query) {
 }
 
 module.exports = async (req, res) => {
+  const REQUIRED_KEY = process.env.QR_API_KEY;
+  const apiKey = req.query?.key || req.headers["x-api-key"]; 
+  if (REQUIRED_KEY && apiKey !== REQUIRED_KEY) {
+    res.statusCode = 401;
+    return res.end("Unauthorized");
+  }
+
   try {
     const size = clampInt(req.query?.size, 200, 1200, DEFAULT_SIZE);
     const margin = clampInt(req.query?.margin, 0, 25, DEFAULT_MARGIN);
