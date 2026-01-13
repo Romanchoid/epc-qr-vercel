@@ -5,7 +5,8 @@ export const config = {
   api: { bodyParser: false },
 };
 
-const REQUIRED_KEY = process.env.REQUIRED_KEY;
+const REQUIRED_KEY = process.env.PDF_MERGE_API_KEY;
+
 
 function parseMultipart(req) {
   return new Promise((resolve, reject) => {
